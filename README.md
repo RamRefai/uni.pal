@@ -10,7 +10,6 @@ Uni.pal is a web app initiative by the University of Texas at Arlington alumni, 
 
 ## Creators
 
-Surjith S M ( [@surjithctly](https://surjithctly.in/) )
 
 Ram Refai ( [@RamRefai](https://linkedin.com/RamRefai))
 
