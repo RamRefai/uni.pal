@@ -9,25 +9,25 @@ import {
 
 import benefitOneImg from "../public/img/benefit-one.png";
 import benefitTwoImg from "../public/img/benefit-two.png";
-
+import heroImg5 from "../public/img/hero5.png";
 const benefitOne = {
-  title: "Highlight your benefits",
-  desc: "You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.",
-  image: benefitOneImg,
+  title: "Our functions",
+  desc:"Enhancing a student's experience and engagement on campus, aligning the user with the innovative spirit of uni.pal.",
+  image: heroImg5,
   bullets: [
     {
-      title: "Understand your customers",
-      desc: "Then explain the first point breifly in one or two lines.",
+      title: "Dynamic Campus Selection",
+      desc: "Implementing a dynamic campus selection feature allowing users to choose their campus and get personalized resources.",
       icon: <FaceSmileIcon />,
     },
     {
-      title: "Improve acquisition",
-      desc: "Here you can add the next benefit point.",
+      title: "Resource Categories",
+      desc: "Organizing resources into clear categories such as AI Tools, Advising Help, Course Flow Diagrams, and Important Deadlines.",
       icon: <ChartBarSquareIcon />,
     },
     {
-      title: "Drive customer retention",
-      desc: "This will be your last bullet point in this section.",
+      title: "Newsletter Signup:",
+      desc: "Offering a newsletter signup for users to stay updated on new resources, important deadlines, and other relevant information.",
       icon: <CursorArrowRaysIcon />,
     },
   ],

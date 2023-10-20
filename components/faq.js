@@ -12,12 +12,12 @@ const Faq = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-indigo-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
+                  <Disclosure.Button className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-bermuda focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
                     <span>{item.question}</span>
                     <ChevronUpIcon
                       className={`${
                         open ? "transform rotate-180" : ""
-                      } w-5 h-5 text-indigo-500`}
+                      } w-5 h-5 text-bermuda`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-500 dark:text-gray-300">
@@ -35,22 +35,22 @@ const Faq = () => {
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
+    question: "How do I select my campus on uni.pal?",
+    answer: "After landing on our homepage, you'll find a button to get started that will lead you to campus selection dropdown. Simply choose your campus from the list to personalize your experience.",
   },
   {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, this you can.",
+    question: "What kind of resources does uni.pal provide?",
+    answer: "We're currently planning to provide a variety of resources including AI-driven interview preparation, course flow diagrams, advising assistance, and crucial links for campus-specific and nationwide deadlines like FAFSA.",
   },
   {
-    question: "What is your refund policy? ",
+    question: "How does the AI chatbot Pal assist me?",
     answer:
-      "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
+      "Pal, powered by alumni insights from your chosen campus, provides personalized advice, answers your questions, and guides you through university resources to help achieve your academic and career goals.",
   },
   {
-    question: "Do you offer technical support? ",
+    question: "How can I stay updated with new resources and important deadlines?",
     answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
+      "You can sign up for our newsletter to receive updates on new resources, upcoming deadlines, and other essential information tailored to your university.",
   },
 ];
 
