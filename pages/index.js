@@ -9,7 +9,7 @@ import Footer from "../components/footer";
 import Testimonials from "../components/testimonials";
 import Faq from "../components/faq";
 import PopupWidget from "../components/popupWidget";
-
+import CampusSelection from "../components/CampusSelection";
 const Home = () => {
   return (
     <>
