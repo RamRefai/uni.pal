@@ -72,26 +72,31 @@ const Navbar = () => {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigation.map((menu, index) => (
-              <>
-              <li className="mr-3 nav__item" key={index}>
-                <Link href={menu} className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-black focus:outline-none dark:focus:bg-bermuda hover:text-bermuda">
-                  {menu}
-                </Link>
-              </li>
-              
-                </>
-            ))}
             <li className="mr-3 nav_item">
-                <Link href="/team" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-black focus:outline-none dark:focus:bg-bermuda hover:text-bermuda">
-                  Meet the team
-                </Link>
-                </li>
-                <li className="mr-3 nav_item">
-                <Link href="https://www.buymeacoffee.com/ramrefai" target="_blank" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-black focus:outline-none dark:focus:bg-bermuda hover:text-bermuda">
-                  Buy us a coffee
-                </Link>
-                </li>
+              <Link href="/Features" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                Features
+              </Link>
+            </li>
+            <li className="mr-3 nav_item">
+              <Link href="/Pricing" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                Pricing
+              </Link>
+            </li>
+            <li className="mr-3 nav_item">
+              <Link href="/campuses/Landing" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                Choose your campus
+              </Link>
+            </li>
+            <li className="mr-3 nav_item">
+              <Link href="/team" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                Meet the team
+              </Link>
+            </li>
+            <li className="mr-3 nav_item">
+              <Link href="https://www.buymeacoffee.com/ramrefai" target="_blank" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                Buy us a coffee
+              </Link>
+            </li>
           </ul>
         </div>
 

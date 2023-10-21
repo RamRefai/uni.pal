@@ -4,10 +4,12 @@ import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import TypeIt from "typeit-react";
+import Bounce from "typeit-react";
+
 function Landing() {
   return (
     <>
-    <Head>
+      <Head>
         <title>uni.pal</title>
         <meta
           name="description"
@@ -16,20 +18,23 @@ function Landing() {
         <link rel="icon" href="/img/logo.png" />
       </Head>
       <Navbar />
-      <TypeIt
+
+
+
+
+      <Container className="flex flex-col items-center justify-center w-full lg:w p-12">
+        <TypeIt
           options={{
             strings: [
               'Please choose your campus:'], // Text to be typed
-            speed: 60 // Typing speed (adjust as needed)
-      
+            speed: 60// Typing speed (adjust as needed)
+
           }}
-          className="font-bold text-5xl flex justify-center"
+          className="font-bold text-5xl pb-10"
         />
-      <Container className="flex justify-center w-full lg:w ">
-      
-      <CampusSelection/>
+        <CampusSelection />
       </Container>
-      <Footer className="pt-30"/>
+      <Footer/>
 
 
     </>
