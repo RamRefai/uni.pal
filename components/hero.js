@@ -6,8 +6,54 @@ import heroImg4 from "../public/img/hero4.png";
 import TypeIt from "typeit-react";
 import UTALogo2 from "../public/img/University_of_Texas_at_Arlington_logo.svg"
 import AMLogo from "../public/img/texas-amLogo.svg"
-
+import LoginModal from "./LoginModal";
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 const Hero = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
+  
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        const email = result.user.email;
+
+        console.log(email);
+        router.push('/campuses/Landing');
+
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        console.log(email);
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      })
+
+
+
+  };
+
+  const openModal = (e) => {
+    e.preventDefault();
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <>
       <Container className="flex flex-wrap ">
@@ -25,11 +71,12 @@ const Hero = () => {
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <a
                 href="/campuses/Landing"
-                
+                onClick={openModal}
                 rel="noopener"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-bermuda rounded-md ">
-                Choose your campus
+                Meet your pal
               </a>
+              <LoginModal isOpen={isModalOpen} onClose={closeModal} />
               <a
                 href="https://github.com/RamRefai/uni.pal"
                 target="_blank"
@@ -73,46 +120,46 @@ const Hero = () => {
 
           <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
             <div className="pt-6 text-bermuda dark:text-bermuda">
-            <Image
-              src={UTALogo2}
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-            />
+              <Image
+                src={UTALogo2}
+                className={"object-cover"}
+                alt="Hero Illustration"
+                loading="eager"
+              />
             </div>
             <div className="text-bermuda dark:text-bermuda">
-            <Image
-              src={AMLogo}
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-              width="125"
-            />
+              <Image
+                src={AMLogo}
+                className={"object-cover"}
+                alt="Hero Illustration"
+                loading="eager"
+                width="125"
+              />
             </div>
             <div className="pt-6 text-bermuda dark:text-bermuda">
-            <Image
-              src={UTALogo2}
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-            />
+              <Image
+                src={UTALogo2}
+                className={"object-cover"}
+                alt="Hero Illustration"
+                loading="eager"
+              />
             </div>
             <div className="text-bermuda dark:text-bermuda">
-            <Image
-              src={AMLogo}
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-              width="125"
-            />
+              <Image
+                src={AMLogo}
+                className={"object-cover"}
+                alt="Hero Illustration"
+                loading="eager"
+                width="125"
+              />
             </div>
             <div className="pt-6 text-bermuda dark:text-bermuda">
-            <Image
-              src={UTALogo2}
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-            />
+              <Image
+                src={UTALogo2}
+                className={"object-cover"}
+                alt="Hero Illustration"
+                loading="eager"
+              />
             </div>
           </div>
         </div>

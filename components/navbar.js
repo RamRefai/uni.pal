@@ -3,13 +3,14 @@ import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
 import TypeIt from "typeit-react";
-
+import SignOutButton from "./SignOutButton";
 const Navbar = () => {
   const navigation = [
     "Features",
     "Pricing",
+    "team",
   ];
-
+  ``
   return (
     <div className="w-full">
       <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
@@ -57,11 +58,16 @@ const Navbar = () => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    {navigation.map((item, index) => (
-                      <Link key={index} href="/" className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-bermuda focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
-                        {item}
-                      </Link>
-                    ))}
+                    <Link href="/Features" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                      Features
+                    </Link>
+                    <Link href="/Pricing" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                      Pricing
+                    </Link>
+                    
+                    <Link href="https://www.buymeacoffee.com/ramrefai" target="_blank" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                      Buy us a coffee
+                    </Link>
                   </>
                 </Disclosure.Panel>
               </div>
@@ -82,11 +88,7 @@ const Navbar = () => {
                 Pricing
               </Link>
             </li>
-            <li className="mr-3 nav_item">
-              <Link href="/campuses/Landing" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
-                Choose your campus
-              </Link>
-            </li>
+            
             <li className="mr-3 nav_item">
               <Link href="/team" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                 Meet the team
@@ -98,10 +100,10 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <SignOutButton/>
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-
           <ThemeChanger />
         </div>
       </nav>

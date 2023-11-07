@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "description": "Nextly Landing Page Template",
   "private": true,
+  "proxy": "http://localhost:5000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start-backend": "cd backend && env/bin/flask run --no-debugger"
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,14 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^10.5.1",
+    "firebaseui": "^6.1.0",
     "next": "^13.3.1",
     "next-themes": "^0.2.1",
+    "openai": "^4.14.2",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.43.9",
