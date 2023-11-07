@@ -9,44 +9,48 @@ import AMLogo from "../public/img/texas-amLogo.svg"
 import LoginModal from "./LoginModal";
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 const Hero = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const router = useRouter();
-  
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log(result);
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-        const email = result.user.email;
+  const auth = getAuth();
+  const user = auth.currentUser;
 
-        console.log(email);
-        router.push('/campuses/Landing');
+  // const signInWithGoogle = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       console.log(result);
+  //       // This gives you a Google Access Token. You can use it to access the Google API.
+  //       const credential = GoogleAuthProvider.credentialFromResult(result);
+  //       const token = credential.accessToken;
+  //       // The signed-in user info.
+  //       const user = result.user;
+  //       // IdP data available using getAdditionalUserInfo(result)
+  //       // ...
+  //       const email = result.user.email;
 
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        console.log(email);
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      })
+  //       console.log(email);
+  //       router.push('/campuses/Landing');
 
-
-
-  };
+  //     }).catch((error) => {
+  //       // Handle Errors here.
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       const email = error.customData.email;
+  //       console.log(email);
+  //       // The AuthCredential type that was used.
+  //       const credential = GoogleAuthProvider.credentialFromError(error);
+  //       // ...
+  //     })
+  // };
 
   const openModal = (e) => {
     e.preventDefault();
+    if(user != null){
+      router.push('/campuses/Landing')
+    }
     setModalOpen(true);
   };
 

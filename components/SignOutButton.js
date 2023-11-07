@@ -7,12 +7,14 @@ import { auth } from "/utils/firebase"
 function SignOutButton() {
 
     const auth = getAuth();
-
+    const user = auth.currentUser;
     const signOutUser = () => 
     signOut(auth).then(function() {
         console.log("Signout successful.");
+        console.log(user);
       }).catch(function(error) {
         console.log("Signout unsuccessful.");
+        console.log(user);
       });
 
     return (

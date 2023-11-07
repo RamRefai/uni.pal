@@ -41,7 +41,6 @@ const Landing = () => {
           />
           <CampusSelection />
         </Container>
-        <Footer />
 
       </ProtectedRoute>
     </>

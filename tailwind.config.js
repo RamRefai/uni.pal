@@ -19,6 +19,8 @@ module.exports = {
       'silver': '#ecebff',
       'bubble-gum': '#ff77e9',
       'bermuda': '#D22B2B',
+      'orange':'#FFA500',
+      'ocean': '#D1E5F4',
       },
     },
     fontFamily: {
