@@ -4,18 +4,22 @@ import OpenAI from "openai";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import Container from "../components/container";
+import ProtectedRoute from "/components/ProtectedRoute";
+import Chatbox from '../components/chatbox';
+
 const Pal = () => {
-
-
+    
     return (
         <>
-            <Navbar />
+            <ProtectedRoute>
+                <Navbar />
+                <div className="h-screen w-full flex justify-center items-center">
+           
+                <Chatbox/>
 
-            <div className="h-screen w-full flex justify-center items-center">
-                
-
-            </div>
-            <Footer />
+                </div>
+                <Footer />
+            </ProtectedRoute>
         </>
     );
 

@@ -6,6 +6,8 @@ import { FirebaseError } from "firebase/app";
 import { AuthProvider } from '../components/AuthContext';
 
 function MyApp({ Component, pageProps }) {
+  <script src="/node_modules/packery/dist/packery.pkgd.min.js"></script>
+
   return (
     <AuthProvider>
     <ThemeProvider attribute="class">

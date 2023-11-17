@@ -21,6 +21,7 @@ module.exports = {
       'bermuda': '#D22B2B',
       'orange':'#FFA500',
       'ocean': '#D1E5F4',
+      'cool-orange':'#FF9209',
       },
     },
     fontFamily: {
