@@ -5,7 +5,6 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import Container from "../components/container";
 import ProtectedRoute from "/components/ProtectedRoute";
-import Chatbox from '../components/chatbox';
 
 const Pal = () => {
     
