@@ -13,19 +13,32 @@ import heroImg4 from "/public/img/hero4.png";
 import UTALogo2 from "/public/img/University_of_Texas_at_Arlington_logo.svg"
 import AMLogo from "/public/img/texas-amLogo.svg"
 import { useRouter } from 'next/router';
+import ChatBot from "/components/chatBot";
+import InterviewBot from "/components/interviewBot";
+import ThemeChanger from "/components/DarkSwitch";
 
 function home() {
   const router = useRouter();
   const auth = getAuth();
   const user = auth.currentUser;
-  
+
+  const [isChatBotVisible, setChatBotVisible] = useState(false);
+  const [isinterviewBotVisible, setinterviewBotVisible] = useState(false);
+
+  const handleChatBotToggle = () => {
+    setChatBotVisible(!isChatBotVisible);
+  };
+
+  const handleinterviewBotToggle = () => {
+    setinterviewBotVisible(!isinterviewBotVisible);
+  };
 
 
   return (
     <>
-
-      <ProtectedRoute>
-        <div className="bg-silver">
+      <div className="bg-white dark:bg-gray-800">
+        <ProtectedRoute>
+        <ThemeChanger/>
           <Container className="flex flex-wrap">
             <div className="flex items-center w-full lg:w-1/2">
               <div className="max-w-2xl mb-8">
@@ -39,12 +52,10 @@ function home() {
                   your academic journey is about to get simpler. Connect with a community of Mavericks,
                   unlocking the full potential of UTA's alumni network at your fingertips.
                 </p>
-
-                <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
-
-                </div>
               </div>
+              
             </div>
+
             <div className="flex items-center justify-center w-full lg:w-1/2">
               <div className="">
                 <Image
@@ -54,52 +65,82 @@ function home() {
                   className={"object-cover"}
                   alt="Hero Illustration"
                   loading="eager"
-
                 />
               </div>
             </div>
-          </Container>
-        </div>
 
-        <div className="bg-white">
+          </Container>
+
           <Container>
-            <div className="flex flex-col justify-center">
+          <div className="container mx-auto p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* <!-- Interview With Pal --> */}
+              <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center focus:ring hover:bg-ocean cursor-pointer" onClick={handleChatBotToggle}>
+                Pal Chatbot
+              </div>
+
+              {/* <!-- Alumni Chatbot --> */}
+              <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center focus:ring hover:bg-ocean cursor-pointer" onClick={handleinterviewBotToggle}>
+                Interview with Pal
+              </div>
+
+              {/* <!-- Parking Help --> */}
+              <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center cursor-pointer hover:bg-ocean focus:ring">
+                Parking Help
+              </div>
+
+              {/* <!-- Important Links --> */}
+              <div className="md:col-span-2 bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center cursor-pointer hover:bg-ocean focus:ring">
+                Important Links
+              </div>
+
+              {/* <!-- Under Construction (1) --> */}
+              <div className="under-construction p-4 rounded-lg shadow-md text-center">
+                Under Construction
+              </div>
+{/* 
+              <!-- Under Construction (2) --> */}
+              <div className="under-construction p-4 rounded-lg shadow-md text-center">
+                Under Construction
+              </div>
+
+              {/* <!-- Under Construction (3) --> */}
+              <div class="under-construction p-4 rounded-lg shadow-md text-center">
+                Under Construction
+              </div>
+            </div>
+          </div>
+          </Container>
+
+    
+          <Container>
+            <div className="flex flex-col justify-center margin-auto">
               <div className="text-xl text-center text-gray-700 dark:text-white">
-
+                <ChatBot
+                  isVisible={isChatBotVisible}
+                  onClose={handleChatBotToggle}
+                />
+              </div>
+              <div className="text-xl text-center text-gray-700 dark:text-white">
+                <InterviewBot
+                  isVisible={isinterviewBotVisible}
+                  onClose={handleinterviewBotToggle} />
               </div>
 
-              <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
-
-              </div>
-            </div>
-
-            {/* BENTO BOX */}
-            <div className="grid auto-rows-[192px] grid-cols-3 gap-4">
-              {['Interview With Pal', 'Alumni Chatbot', 'Parking Help', 'Important Links', 'Under Construction', 'Under Construction', 'Under Construction'].map((label, i) => (
-                <div
-                  key={i}
-                  className={`row-span-1 rounded-xl border-2 border-silver bg-cool-orange text-silver font-bold py-2 px-4 text-5xl flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg cursor-pointer ${i === 3 || i === 6 ? "col-span-2" : ""
-                    }`}
-                  onClick={() => router.push('/' + label.toLowerCase().replace(/\s+/g, ''))}
-                  style={{ transition: 'transform 0.5s ease, box-shadow 0.3s ease' }}
-                >
-                  {label}
-                </div>
-              ))}
-            </div>
-
-
-            <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
 
             </div>
           </Container>
-        </div>
-      </ProtectedRoute>
 
+        
+        </ProtectedRoute>
+      </div>
     </>
-
-
   );
 }
 
 export default home;
+
+
+
+
+
