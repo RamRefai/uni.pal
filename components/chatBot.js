@@ -44,7 +44,7 @@ const ChatBot = ({ isVisible, onClose }) => {
 
   return isVisible ? (
     <div className="flex flex-col items-center p-4">
-      <div className="overflow-y-auto h-96 w-full bg-gray-200 p-3 space-y-2 dark:text-black dark:bg-ocean">
+      <div className="overflow-y-auto h-96 w-full bg-gray-200 p-3 border-solid border-4 space-y-2 dark:text-black dark:bg-ocean">
         {conversation.map((entry, index) => (
           <div key={index} className={`flex ${entry.sender === 'bot' ? 'justify-start' : 'justify-end'}`}>
             <div className={`max-w-3xl p-2 rounded ${entry.sender === 'bot' ? 'bg-orange' : 'bg-white'}`}>
@@ -66,7 +66,7 @@ const ChatBot = ({ isVisible, onClose }) => {
           className="flex-1 p-2 border-2 border-gray-300 rounded-l"
           onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
         />
-        <button onClick={sendMessage} className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-700">
+        <button onClick={sendMessage} className="bg-blue-500 border-4 border-solid text-white px-4 py-2 rounded-r hover:bg-blue-700">
           Send
         </button>
       </div>

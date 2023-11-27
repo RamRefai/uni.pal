@@ -33,12 +33,19 @@ function home() {
     setinterviewBotVisible(!isinterviewBotVisible);
   };
 
+  const parkingHelpToggle = () =>{
+    window.location.href = 'https://uta.modii.co';
+  }
+
 
   return (
     <>
       <div className="bg-white dark:bg-gray-800">
         <ProtectedRoute>
-        <ThemeChanger/>
+          <div className="fixed">
+            <ThemeChanger />
+          </div>
+
           <Container className="flex flex-wrap">
             <div className="flex items-center w-full lg:w-1/2">
               <div className="max-w-2xl mb-8">
@@ -53,7 +60,7 @@ function home() {
                   unlocking the full potential of UTA's alumni network at your fingertips.
                 </p>
               </div>
-              
+
             </div>
 
             <div className="flex items-center justify-center w-full lg:w-1/2">
@@ -72,47 +79,47 @@ function home() {
           </Container>
 
           <Container>
-          <div className="container mx-auto p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* <!-- Interview With Pal --> */}
-              <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center focus:ring hover:bg-ocean cursor-pointer" onClick={handleChatBotToggle}>
-                Pal Chatbot
-              </div>
+            <div className="container mx-auto p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* <!-- Interview With Pal --> */}
+                <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center focus:ring hover:bg-ocean cursor-pointer" onClick={handleChatBotToggle}>
+                  Pal Chatbot
+                </div>
 
-              {/* <!-- Alumni Chatbot --> */}
-              <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center focus:ring hover:bg-ocean cursor-pointer" onClick={handleinterviewBotToggle}>
-                Interview with Pal
-              </div>
+                {/* <!-- Alumni Chatbot --> */}
+                <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center focus:ring hover:bg-ocean cursor-pointer" onClick={handleinterviewBotToggle}>
+                  Interview with Pal
+                </div>
 
-              {/* <!-- Parking Help --> */}
-              <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center cursor-pointer hover:bg-ocean focus:ring">
-                Parking Help
-              </div>
+                {/* <!-- Parking Help --> */}
+                <div className="bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center cursor-pointer hover:bg-ocean focus:ring" onClick={parkingHelpToggle}>
+                  Parking Help
+                </div>
 
-              {/* <!-- Important Links --> */}
-              <div className="md:col-span-2 bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center cursor-pointer hover:bg-ocean focus:ring">
-                Important Links
-              </div>
+                {/* <!-- Important Links --> */}
+                <div className="md:col-span-2 bg-orange p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow text-white font-semibold text-center cursor-pointer hover:bg-ocean focus:ring">
+                  Important Links
+                </div>
 
-              {/* <!-- Under Construction (1) --> */}
-              <div className="under-construction p-4 rounded-lg shadow-md text-center">
-                Under Construction
-              </div>
-{/* 
+                {/* <!-- Under Construction (1) --> */}
+                <div className="under-construction p-4 rounded-lg shadow-md text-center">
+                  Under Construction
+                </div>
+                {/* 
               <!-- Under Construction (2) --> */}
-              <div className="under-construction p-4 rounded-lg shadow-md text-center">
-                Under Construction
-              </div>
+                <div className="under-construction p-4 rounded-lg shadow-md text-center">
+                  Under Construction
+                </div>
 
-              {/* <!-- Under Construction (3) --> */}
-              <div class="under-construction p-4 rounded-lg shadow-md text-center">
-                Under Construction
+                {/* <!-- Under Construction (3) --> */}
+                <div class="md:col-span-2 under-construction p-4 rounded-lg shadow-md text-center">
+                  Under Construction
+                </div>
               </div>
             </div>
-          </div>
           </Container>
 
-    
+
           <Container>
             <div className="flex flex-col justify-center margin-auto">
               <div className="text-xl text-center text-gray-700 dark:text-white">
@@ -131,7 +138,7 @@ function home() {
             </div>
           </Container>
 
-        
+
         </ProtectedRoute>
       </div>
     </>
