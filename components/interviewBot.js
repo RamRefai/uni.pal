@@ -4,14 +4,13 @@ const LoadingIndicator = () => <div>Loading...</div>;
 
 const interviewBot = ({ isVisible, onClose }) => {
     const [questions, setQuestions] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(false);
     function toggleJobDescriptionInput() {
         const toggle = document.getElementById('toggleGenerate');
-        const roleSelection = document.getElementById('roleSelection');
+        const roleSelection = document.getElementById('roleInput');
         const jobDescriptionInput = document.getElementById('jobDescriptionInput');
 
         if (toggle.checked) {
-            roleSelection.classList.add('hidden');
             jobDescriptionInput.classList.remove('hidden');
         } else {
             roleSelection.classList.remove('hidden');
@@ -21,8 +20,9 @@ const interviewBot = ({ isVisible, onClose }) => {
 
     async function generateQuestions() {
         const jobDescription = document.getElementById('jobDescription').value;
-        const jobRole = document.getElementById('roleDropdown').value;
+        const jobRole = document.getElementById('roleTextarea').value;
 
+        setIsLoading(true);
         const response = await fetch('http://localhost:5000/generate_questions', {
             method: 'POST',
             headers: {
@@ -32,7 +32,11 @@ const interviewBot = ({ isVisible, onClose }) => {
         });
 
         const data = await response.json();
+        setIsLoading(false);
         setQuestions(data.questions);
+
+        console.log(jobRole);
+        console.log(jobDescription);
     }
 
     function takeInterview() {
@@ -59,32 +63,40 @@ const interviewBot = ({ isVisible, onClose }) => {
                                 </div>
                             </label>
                         </div>
-                        <div id="roleSelection" className="mb-4">
-                            <label htmlFor="roleDropdown" className="block text-gray-700 text-sm font-bold mb-2">Select a role</label>
-                            <select id="roleDropdown" className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option>Software Engineer</option>
-                                <option>Data Scientist</option>
-                                <option>Product Manager</option>
-                                <option>UI/UX Designer</option>
-                            </select>
-                        </div>
+
+
                         <div id="jobDescriptionInput" className="mb-4 hidden">
                             <label htmlFor="jobDescription" className="block text-gray-700 dark:text-white text-sm font-bold mb-2">Job Description</label>
                             <textarea id="jobDescription" className="w-full px-3 py-2 text-gray-700 dark:text-white border rounded-lg focus:outline-none" rows="4"></textarea>
                         </div>
+
+                        <div id="roleInput" className="mb-4 flex-col">
+                            <label htmlFor="roleTextarea" className="flex text-gray-700 text-sm font-bold mb-2">Enter your role</label>
+                            <textarea id="roleTextarea" className="flex w-half h-10 resize-none rounded leading-tight focus:outline-none focus:border-gray-500 bg-gray-100"></textarea>
+                        </div>
                         <div className="flex justify-between items-center">
-                            <button onClick={generateQuestions} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                                GENERATE INTERVIEW QUESTION
+                            <button
+                                onClick={generateQuestions}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="button"
+                                disabled={isLoading} // Disable the button while loading
+                            >
+                                {isLoading ? <LoadingIndicator /> : 'GENERATE INTERVIEW QUESTION'}
                             </button>
-                            <button onClick={takeInterview} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                            <button
+                                onClick={takeInterview}
+                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="button"
+                                disabled={isLoading} // Disable the button while loading
+                            >
                                 TAKE INTERVIEW
                             </button>
                         </div>
                         <div id="questionList" className="mt-6">
-                {questions.map((question, index) => (
-                    <p key={index} className="text-gray-600">{question}</p>
-                ))}
-            </div>
+                            {questions.map((question, index) => (
+                                <p key={index} className="text-gray-600">{question}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

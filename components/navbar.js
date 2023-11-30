@@ -58,9 +58,9 @@ const Navbar = () => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    <Link href="/Features" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
+                    {/* <Link href="/Features" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                       Features
-                    </Link>
+                    </Link> */}
                     <Link href="/Pricing" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                       Pricing
                     </Link>
@@ -78,22 +78,22 @@ const Navbar = () => {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            <li className="mr-3 nav_item">
+            {/* <li className="mr-3 nav_item">
               <Link href="/Features" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                 Features
               </Link>
-            </li>
+            </li> */}
             <li className="mr-3 nav_item">
               <Link href="/Pricing" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                 Pricing
               </Link>
             </li>
             
-            <li className="mr-3 nav_item">
+            {/* <li className="mr-3 nav_item">
               <Link href="/team" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                 Meet the team
               </Link>
-            </li>
+            </li> */}
             <li className="mr-3 nav_item">
               <Link href="https://www.buymeacoffee.com/ramrefai" target="_blank" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-bermuda focus:text-bermuda focus:bg-transparent focus:outline-none dark:focus:bg-transparent dark:hover:text-bermuda">
                 Buy us a coffee

@@ -12,6 +12,7 @@ function SignOutButton() {
     signOut(auth).then(function() {
         console.log("Signout successful.");
         console.log(user);
+        location.reload();
       }).catch(function(error) {
         console.log("Signout unsuccessful.");
         console.log(user);
